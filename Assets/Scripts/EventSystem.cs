@@ -7,7 +7,7 @@ public class EventSystem : Singleton<EventSystem>
 {
     public event Action<Transform> StrartDelivery;
 
-    public virtual void OnStrartDelivery(Transform obj)
+    public virtual void OnStartDelivery(Transform obj)
     {
         StrartDelivery?.Invoke(obj);
     }
@@ -21,8 +21,22 @@ public class EventSystem : Singleton<EventSystem>
 
     public event Action<Vector3> DropBottle;
 
-    protected virtual void OnDropBottle(Vector3 obj)
+    public virtual void OnDropBottle(Vector3 obj)
     {
         DropBottle?.Invoke(obj);
+    }
+    
+    public event Action<GameObject> PickupBottle;
+
+    public virtual void OnPickupBottle(GameObject obj)
+    {
+        PickupBottle?.Invoke(obj);
+    }
+    
+    public event Action GiveBottle;
+
+    public virtual void OnGiveBottle()
+    {
+        GiveBottle?.Invoke();
     }
 }

@@ -26,7 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e45d95ca880ede4991328fec30a6585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderRadius: 20
+  wanderRadius: 40
   wanderTimer: 1
 --- !u!195 &1456400547
 NavMeshAgent:
@@ -126,8 +126,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Avatar
       value: 
-      objectReference: {fileID: 9000000, guid: 7f9b57a02a16e55429c68854f45a8801, type: 3}
-    m_RemovedComponents: []
+      objectReference: {fileID: 9000000, guid: dc1dacc99c42993499b968409533f7cb, type: 3}
+    - target: {fileID: 4556870034394943039, guid: 85c0a17cb59c1814aa0c13c6a6662565,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2ab7952c3cc6ec94ca5dbfb54b05c91d, type: 2}
+    m_RemovedComponents:
+    - {fileID: 4138733826090236920, guid: 85c0a17cb59c1814aa0c13c6a6662565, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 85c0a17cb59c1814aa0c13c6a6662565, type: 3}
 --- !u!1 &5878396045305310220 stripped
 GameObject:

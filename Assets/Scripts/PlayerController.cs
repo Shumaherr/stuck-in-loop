@@ -16,10 +16,17 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        EventSystem.Instance.PickupBottle += PickupBottle;
         _forward = Camera.main.transform.forward;
         _forward.y = 0;
         _forward = Vector3.Normalize(_forward);
         _right = Quaternion.Euler(new Vector3(0, 90, 0)) * _forward;
+    }
+
+    private void PickupBottle(GameObject o)
+    {
+        GameObject.Destroy(o);
+        GameManager.Instance.AddBottle();
     }
 
     // Update is called once per frame
@@ -93,6 +100,20 @@ public class PlayerController : MonoBehaviour
         {
             _isLanding = false;
             _isTakingOff = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag.Equals("bottle"))
+        {
+            EventSystem.Instance.OnPickupBottle(other.gameObject);
+            gameObject.GetComponents<AudioSource>()[0].Play();
+        }
+        if (other.gameObject.tag.Equals("fabric"))
+        {
+            EventSystem.Instance.OnGiveBottle();
+            gameObject.GetComponents<AudioSource>()[1].Play();
         }
     }
 }

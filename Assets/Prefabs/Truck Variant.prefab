@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!54 &5457376985238907014
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6096379080853205960}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &759924146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25,10 +41,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73dfa631f158839429d8e5372ebc7e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathCreator: {fileID: 8488209510830736595, guid: 6b53670ee4683e0418a12a9d0c7d122e,
+  pathCreator: {fileID: 1227526324206356892, guid: 66ec3362ba79045499eaddbf5f5bff12,
     type: 3}
   end: 0
   speed: 5
+  bottles: 0
 --- !u!1001 &6096993367270099210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39,6 +56,10 @@ PrefabInstance:
     - target: {fileID: 1811253549644482, guid: 14e4dbfedeed34648a4e56ed976db3f8, type: 3}
       propertyPath: m_Name
       value: Truck Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811253549644482, guid: 14e4dbfedeed34648a4e56ed976db3f8, type: 3}
+      propertyPath: m_TagString
+      value: truck
       objectReference: {fileID: 0}
     - target: {fileID: 4462874176407332, guid: 14e4dbfedeed34648a4e56ed976db3f8, type: 3}
       propertyPath: m_LocalPosition.x

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - platform
   - NPC
+  - bottle
+  - Fabric
+  - fabric
+  - truck
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - 
   - 
   - Park
-  - 
+  - Player
   - 
   - 
   - 

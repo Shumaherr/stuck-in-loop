@@ -26,8 +26,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e45d95ca880ede4991328fec30a6585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderRadius: 25
-  wanderTimer: 5
+  wanderRadius: 40
+  wanderTimer: 1
 --- !u!195 &229203923
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -122,6 +122,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 2843745011154446653, guid: a82ab613de593e2439b710b4ce1813b9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 81608c56281652744a88201ce17db3b7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a82ab613de593e2439b710b4ce1813b9, type: 3}
 --- !u!1 &3837750566280812628 stripped

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using PathCreation;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -14,19 +15,34 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] public List<Transform> NPCs;
     [SerializeField] public int numNPCs;
     [SerializeField] public Transform wanderingZone;
+    TextMeshProUGUI _bottlesCounter;
 
     public int countBottles;
-    private Transform truckInstance;
+    private int pickedBottles;
+    public Transform truckInstance;
     private List<Transform> _spawnedNPCs;
     
     // Start is called before the first frame
     // update
     void Start()
     {
-        InvokeRepeating("SpawnTruck", 5, 60);
-
+        _bottlesCounter = GameObject.Find("BottleCounter").GetComponent<TextMeshProUGUI>();
+        InvokeRepeating("SpawnTruck", 0, 60);
+        EventSystem.Instance.GiveBottle += GiveBottles;
         _spawnedNPCs = new List<Transform>();
         SpawnCroud();
+    }
+
+    private void GiveBottles()
+    {
+        pickedBottles = 0;
+        _bottlesCounter.text = pickedBottles + " bottles picked up";
+    }
+
+    public void AddBottle()
+    {
+        pickedBottles++;
+        _bottlesCounter.text = pickedBottles + " bottles picked up";
     }
 
     private void DriveBack()
@@ -36,8 +52,11 @@ public class GameManager : Singleton<GameManager>
 
     private void SpawnTruck()
     {
+        if (truckInstance != null && !truckInstance.GetComponent<TruckController>().DriveAway)
+            truckInstance.GetComponent<TruckController>().DriveAway = true;
        truckInstance = Instantiate(this.truck, new Vector3(5,0,29),Quaternion.identity);
-        EventSystem.Instance.OnStrartDelivery(truckInstance);
+        EventSystem.Instance.OnStartDelivery(truckInstance);
+        GetComponent<Timer>().time = 60;
     }
 
     private void SpawnCroud()
@@ -71,7 +90,9 @@ public class GameManager : Singleton<GameManager>
 
     public Transform SpawnEmptyBottle(Vector3 pos)
     {
-        return Instantiate(emptyBottle, pos, Quaternion.identity);
+        Vector3 tempPos = pos;
+        tempPos.y = 1.18f;
+        return Instantiate(emptyBottle, tempPos, Quaternion.Euler(0,45,0));
     }
     
 }
